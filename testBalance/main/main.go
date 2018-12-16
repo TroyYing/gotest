@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gotest/balance"
+	"gotest/testBalance/balance"
 	"math/rand"
 	"os"
 	"time"

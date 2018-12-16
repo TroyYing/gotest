@@ -5,6 +5,10 @@ import (
 	"math/rand"
 )
 
+func init() {
+	RegisterBalancer("random", &RandomBalance{})
+}
+
 type RandomBalance struct {
 }
 

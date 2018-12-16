@@ -4,6 +4,10 @@ import (
 	"errors"
 )
 
+func init() {
+	RegisterBalancer("roundrobin", &RoundRobinBalance{})
+}
+
 type RoundRobinBalance struct {
 	curIndex int
 }

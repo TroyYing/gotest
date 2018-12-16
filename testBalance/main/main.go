@@ -16,22 +16,13 @@ func main() {
 		insts = append(insts, one)
 	}
 
-	var balancer balance.Balancer
-	var conf = "random"
+	var balanceName = "random"
 	if len(os.Args) > 1 {
-		conf = os.Args[1]
-	}
-
-	if conf == "random" {
-		balancer = &balance.RandomBalance{}
-		fmt.Println("random")
-	} else if conf == "roundrobin" {
-		balancer = &balance.RoundRobinBalance{}
-		fmt.Println("roundrobin")
+		balanceName = os.Args[1]
 	}
 
 	for {
-		inst, err := balancer.DoBalance(insts)
+		inst, err := balance.DoBalance(balanceName, insts)
 		if err != nil {
 			fmt.Println("do balance err:", err)
 			continue
